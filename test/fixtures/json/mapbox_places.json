@@ -1,0 +1,255 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "id": "poi.8589986535",
+      "type": "Feature",
+      "place_type": [
+        "poi"
+      ],
+      "relevance": 1,
+      "properties": {
+        "foursquare": "4adcda92f964a5200a4c21e3",
+        "landmark": true,
+        "address": "Unter den Linden 77",
+        "category": "spa, leisure"
+      },
+      "text": "Adlon Spa by Resense",
+      "place_name": "Adlon Spa by Resense, Unter den Linden 77, Berlin, 10117, Germany",
+      "center": [
+        13.380434,
+        52.515823
+      ],
+      "geometry": {
+        "coordinates": [
+          13.380434,
+          52.515823
+        ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "postcode.7765835190943780",
+          "text": "10117"
+        },
+        {
+          "id": "locality.11948084310524990",
+          "wikidata": "Q2013767",
+          "text": "Mitte"
+        },
+        {
+          "id": "place.14094307404564380",
+          "wikidata": "Q64",
+          "short_code": "DE-BE",
+          "text": "Berlin"
+        },
+        {
+          "id": "country.11437281100480410",
+          "wikidata": "Q183",
+          "short_code": "de",
+          "text": "Germany"
+        }
+      ]
+    },
+    {
+      "id": "poi.249108138346",
+      "type": "Feature",
+      "place_type": [
+        "poi"
+      ],
+      "relevance": 1,
+      "properties": {
+        "foursquare": "54a0231a498e8153c202ac26",
+        "landmark": true,
+        "address": "Friedrichstr. 158-164",
+        "category": "spa, leisure"
+      },
+      "text": "Westin Grand Wellness",
+      "place_name": "Westin Grand Wellness, Friedrichstr. 158-164, Berlin, 10117, Germany",
+      "center": [
+        13.388021,
+        52.515701
+      ],
+      "geometry": {
+        "coordinates": [
+          13.388021,
+          52.515701
+        ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "postcode.7765835190943780",
+          "text": "10117"
+        },
+        {
+          "id": "locality.11948084310524990",
+          "wikidata": "Q2013767",
+          "text": "Mitte"
+        },
+        {
+          "id": "place.14094307404564380",
+          "wikidata": "Q64",
+          "short_code": "DE-BE",
+          "text": "Berlin"
+        },
+        {
+          "id": "country.11437281100480410",
+          "wikidata": "Q183",
+          "short_code": "de",
+          "text": "Germany"
+        }
+      ]
+    },
+    {
+      "id": "poi.498216224357",
+      "type": "Feature",
+      "place_type": [
+        "poi"
+      ],
+      "relevance": 1,
+      "properties": {
+        "foursquare": "4fe5697ae4b0faa0b8e97793",
+        "landmark": true,
+        "address": "Behrenstr. 37",
+        "category": "spa, leisure"
+      },
+      "text": "Fitness & Spa   Hotel de Rome",
+      "place_name": "Fitness & Spa  Hotel de Rome, Behrenstr. 37, Berlin, 10117, Germany",
+      "center": [
+        13.394201,
+        52.515777
+      ],
+      "geometry": {
+        "coordinates": [
+          13.394201,
+          52.515777
+        ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "postcode.7765835190943780",
+          "text": "10117"
+        },
+        {
+          "id": "locality.11948084310524990",
+          "wikidata": "Q2013767",
+          "text": "Mitte"
+        },
+        {
+          "id": "place.14094307404564380",
+          "wikidata": "Q64",
+          "short_code": "DE-BE",
+          "text": "Berlin"
+        },
+        {
+          "id": "country.11437281100480410",
+          "wikidata": "Q183",
+          "short_code": "de",
+          "text": "Germany"
+        }
+      ]
+    },
+    {
+      "id": "poi.446676634486",
+      "type": "Feature",
+      "place_type": [
+        "poi"
+      ],
+      "relevance": 1,
+      "properties": {
+        "foursquare": "4b890aabf964a520931932e3",
+        "landmark": true,
+        "address": "Monbijouplatz 3a",
+        "category": "spa, leisure"
+      },
+      "text": "Yi-Spa",
+      "place_name": "Yi-Spa, Monbijouplatz 3a, Berlin, 10178, Germany",
+      "center": [
+        13.39959,
+        52.523049
+      ],
+      "geometry": {
+        "coordinates": [
+          13.39959,
+          52.523049
+        ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "postcode.13784840219154170",
+          "text": "10178"
+        },
+        {
+          "id": "locality.11948084310524990",
+          "wikidata": "Q2013767",
+          "text": "Mitte"
+        },
+        {
+          "id": "place.14094307404564380",
+          "wikidata": "Q64",
+          "short_code": "DE-BE",
+          "text": "Berlin"
+        },
+        {
+          "id": "country.11437281100480410",
+          "wikidata": "Q183",
+          "short_code": "de",
+          "text": "Germany"
+        }
+      ]
+    },
+    {
+      "id": "poi.283467865630",
+      "type": "Feature",
+      "place_type": [
+        "poi"
+      ],
+      "relevance": 1,
+      "properties": {
+        "foursquare": "5229ad86498e23e307c17a06",
+        "landmark": true,
+        "address": "Potsdamer Platz 3",
+        "category": "spa, leisure"
+      },
+      "text": "The Ritz Carlton Spa & Fitness Center",
+      "place_name": "The Ritz Carlton Spa & Fitness Center, Potsdamer Platz 3, Berlin, 10785, Germany",
+      "center": [
+        13.375133,
+        52.51023
+      ],
+      "geometry": {
+        "coordinates": [
+          13.375133,
+          52.51023
+        ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "postcode.8748314465448900",
+          "text": "10785"
+        },
+        {
+          "id": "locality.10766821516390510",
+          "wikidata": "Q328672",
+          "text": "Tiergarten"
+        },
+        {
+          "id": "place.14094307404564380",
+          "wikidata": "Q64",
+          "short_code": "DE-BE",
+          "text": "Berlin"
+        },
+        {
+          "id": "country.11437281100480410",
+          "wikidata": "Q183",
+          "short_code": "de",
+          "text": "Germany"
+        }
+      ]
+    }
+  ]
+}
