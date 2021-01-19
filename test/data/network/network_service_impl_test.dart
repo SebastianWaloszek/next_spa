@@ -1,11 +1,15 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:spa_coding_exercise/common/environment/environment.dart';
 import 'package:spa_coding_exercise/common/environment/environment_dev.dart';
 import 'package:spa_coding_exercise/common/error/failure.dart';
+import 'package:spa_coding_exercise/common/parameters/get_places_parameters.dart';
 import 'package:spa_coding_exercise/common/result/failure_result.dart';
 import 'package:spa_coding_exercise/common/result/success_result.dart';
+import 'package:spa_coding_exercise/data/models/location_model.dart';
 import 'package:spa_coding_exercise/data/network/http_method.dart';
 import 'package:spa_coding_exercise/data/network/managed_network_service.dart';
 import 'package:spa_coding_exercise/data/network/network_info.dart';
@@ -54,9 +58,16 @@ void main() {
     otherRequest = RequestMock();
     when(otherRequest.method).thenReturn(HttpMethod.get);
     when(otherRequest.path).thenReturn('path');
-    request = GetSpaPlacesRequest();
+    request = GetSpaPlacesRequest(
+      const GetPlacesParameters(
+        nearLocation: LocationModel(
+          latitude: 10,
+          longitude: 20,
+        ),
+      ),
+    );
     tokenResponse =
-        Response(data: fixture('mapbox_places.json'), statusCode: 200);
+        Response(data: jsonEncode(fixture('spa_places.json')), statusCode: 200);
     when(networkInfo.isConnected).thenAnswer((_) async => true);
   });
 

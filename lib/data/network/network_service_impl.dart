@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:spa_coding_exercise/common/environment/environment.dart';
 import 'package:spa_coding_exercise/data/network/http_method.dart';
 import 'package:spa_coding_exercise/data/network/network_service.dart';
 import 'package:spa_coding_exercise/data/network/request.dart';
@@ -12,6 +15,12 @@ class NetworkServiceImpl implements NetworkService {
     @required this.dio,
   }) : assert(dio != null);
 
+  Map<String, dynamic> get _accessTokenParameter {
+    return {
+      'access_token': Environment.current.accessToken,
+    };
+  }
+
   @override
   Future<dynamic> make<T>(Request<T> request) async {
     try {
@@ -20,7 +29,8 @@ class NetworkServiceImpl implements NetworkService {
         options: Options(
           method: request.method.getMethodString(),
         ),
-        queryParameters: request.queryParameters,
+        queryParameters: (request.queryParameters ?? {})
+          ..addAll(_accessTokenParameter),
         data: request.body?.toMap(),
       );
       return _handleResponse<T>(request, response);
@@ -31,7 +41,7 @@ class NetworkServiceImpl implements NetworkService {
 
   Future<T> _handleResponse<T>(Request<T> request, Response response) async {
     if (_requestSuccessful(response.statusCode)) {
-      return request.createResponse(response.data);
+      return request.createResponse(json.decode(response.data as String));
     }
     throw RequestException.fromStatusCode(
         response.statusCode, response.statusMessage);
