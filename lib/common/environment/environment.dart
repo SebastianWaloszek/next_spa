@@ -8,4 +8,6 @@ abstract class Environment {
   }
 
   String get baseUrl;
+
+  String get accessToken;
 }
