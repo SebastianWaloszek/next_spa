@@ -1,14 +1,14 @@
 import 'package:equatable/equatable.dart';
-import 'package:spa_coding_exercise/domain/entities/location.dart';
+import 'package:spa_coding_exercise/domain/entities/place_location.dart';
 import 'package:meta/meta.dart';
 
 class GetPlacesParameters extends Equatable {
   final int limit;
-  final Location nearLocation;
+  final PlaceLocation nearLocation;
 
   const GetPlacesParameters({
     @required this.nearLocation,
-    this.limit = 6,
+    this.limit = 10,
   });
 
   @override

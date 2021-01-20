@@ -43,5 +43,9 @@
 	<false/>
 	<key>CFBundleDisplayName</key>
 	<string>$(APP_DISPLAY_NAME)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This feature is required to show your location on map</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This feature is required to show your location on map</string>
 </dict>
 </plist>

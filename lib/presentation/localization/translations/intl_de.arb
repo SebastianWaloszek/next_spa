@@ -1,4 +1,7 @@
 {
+  "navigate": "Navigieren",
   "noInternetFound": "Keine Internetverbindung gefunden",
-  "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten"
+  "spasNearYou": "SPAs in der Nähe",
+  "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten",
+  "youAreHere": "Du bist hier"
 }

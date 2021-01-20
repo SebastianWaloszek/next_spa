@@ -1,4 +1,7 @@
 {
-  "noInternetFound": "No internet connection found",
-  "unexpectedError": "An unexpected error occurred"
+  "navigate": "Nawiguj",
+  "noInternetFound": "Nie znaleziono połączenia internetowego",
+  "spasNearYou": "SPA blisko ciebie",
+  "unexpectedError": "Wystąpił nieoczekiwany błąd",
+  "youAreHere": "jesteś tutaj"
 }

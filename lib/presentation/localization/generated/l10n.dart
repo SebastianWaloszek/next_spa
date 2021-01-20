@@ -35,21 +35,51 @@ class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  /// `Nie znaleziono połączenia internetowego`
+  /// `Navigate`
+  String get navigate {
+    return Intl.message(
+      'Navigate',
+      name: 'navigate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No internet connection found`
   String get noInternetFound {
     return Intl.message(
-      'Nie znaleziono połączenia internetowego',
+      'No internet connection found',
       name: 'noInternetFound',
       desc: '',
       args: [],
     );
   }
 
-  /// `Wystąpił nieoczekiwany błąd`
+  /// `SPAs near you`
+  String get spasNearYou {
+    return Intl.message(
+      'SPAs near you',
+      name: 'spasNearYou',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unexpected error occurred`
   String get unexpectedError {
     return Intl.message(
-      'Wystąpił nieoczekiwany błąd',
+      'An unexpected error occurred',
       name: 'unexpectedError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you are here`
+  String get youAreHere {
+    return Intl.message(
+      'you are here',
+      name: 'youAreHere',
       desc: '',
       args: [],
     );

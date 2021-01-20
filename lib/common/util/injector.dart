@@ -2,13 +2,16 @@ import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:kiwi/kiwi.dart';
+import 'package:location/location.dart';
 import 'package:spa_coding_exercise/common/environment/environment.dart';
 import 'package:spa_coding_exercise/common/environment/environment_dev.dart';
 import 'package:spa_coding_exercise/common/environment/environment_prod.dart';
+import 'package:spa_coding_exercise/data/data_sources/local/local_user_location_data_source.dart';
 import 'package:spa_coding_exercise/data/data_sources/place_data_source.dart';
 import 'package:spa_coding_exercise/data/data_sources/remote/remote_place_data_source.dart';
 import 'package:spa_coding_exercise/data/data_sources/remote/remote_spa_data_source.dart';
 import 'package:spa_coding_exercise/data/data_sources/spa_data_source.dart';
+import 'package:spa_coding_exercise/data/data_sources/user_location_data_source.dart';
 import 'package:spa_coding_exercise/data/network/managed_network_service.dart';
 import 'package:spa_coding_exercise/data/network/network_info.dart';
 import 'package:spa_coding_exercise/data/network/network_service.dart';
@@ -16,10 +19,15 @@ import 'package:spa_coding_exercise/data/network/network_service_impl.dart';
 import 'package:spa_coding_exercise/data/network/web_network_info.dart';
 import 'package:spa_coding_exercise/data/repositories/place_repository_impl.dart';
 import 'package:spa_coding_exercise/data/repositories/spa_repository_impl.dart';
+import 'package:spa_coding_exercise/data/repositories/user_location_repository_impl.dart';
 import 'package:spa_coding_exercise/domain/repositories/place_repository.dart';
 import 'package:spa_coding_exercise/domain/repositories/spa_repository.dart';
+import 'package:spa_coding_exercise/domain/repositories/user_location_repository.dart';
 import 'package:spa_coding_exercise/domain/use_cases/get_spa_places.dart';
-import 'package:spa_coding_exercise/domain/use_cases/get_user_location.dart';
+import 'package:spa_coding_exercise/domain/use_cases/get_location_place.dart';
+import 'package:spa_coding_exercise/domain/use_cases/get_user_place.dart';
+import 'package:spa_coding_exercise/presentation/features/home/bloc/home_page_bloc.dart';
+import 'package:spa_coding_exercise/presentation/features/user_location/bloc/user_location_bloc.dart';
 
 class Injector {
   static KiwiContainer container;
@@ -71,6 +79,7 @@ class Injector {
       )),
     );
 
+    // NETWORK
     container.registerSingleton<NetworkService>(
       (c) => NetworkServiceImpl(dio: c.resolve()),
       name: 'networkServiceImpl',
@@ -83,32 +92,57 @@ class Injector {
       ),
     );
 
+    // DATA SOURCE
     container.registerSingleton<PlaceDataSource>(
       (c) => RemotePlaceDataSource(
         c.resolve(),
       ),
     );
-
     container.registerSingleton<SpaDataSource>(
       (c) => RemoteSpaDataSource(
         c.resolve(),
       ),
     );
+    container.registerSingleton<UserLocationDataSource>(
+      (c) => LocalUserLocationDataSource(c.resolve()),
+    );
 
+    // REPOSITORY
     container.registerSingleton<PlaceRepository>(
       (c) => PlaceRepositoryImpl(c.resolve()),
     );
-
     container.registerSingleton<SpaRepository>(
       (c) => SpaRepositoryImpl(c.resolve()),
     );
+    container.registerSingleton<UserLocationRepository>(
+      (c) => UserLocationRepositoryImpl(c.resolve()),
+    );
 
+    // USE CASES
     container.registerSingleton<GetSpaPlaces>(
       (c) => GetSpaPlaces(c.resolve()),
     );
+    container.registerSingleton<GetLocationPlace>(
+      (c) => GetLocationPlace(c.resolve()),
+    );
+    container.registerSingleton<GetUserPlace>(
+      (c) => GetUserPlace(
+        c.resolve(),
+        c.resolve(),
+      ),
+    );
 
-    container.registerSingleton<GetUserLocation>(
-      (c) => GetUserLocation(c.resolve()),
+    // BLOCS
+    container.registerSingleton<HomePageBloc>(
+      (c) => HomePageBloc(c.resolve()),
+    );
+    container.registerSingleton<UserLocationBloc>(
+      (c) => UserLocationBloc(c.resolve()),
+    );
+
+    // OTHER
+    container.registerSingleton<Location>(
+      (c) => Location(),
     );
   }
 
