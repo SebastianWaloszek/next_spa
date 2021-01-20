@@ -9,7 +9,7 @@ import 'package:spa_coding_exercise/common/error/failure.dart';
 import 'package:spa_coding_exercise/common/parameters/get_places_parameters.dart';
 import 'package:spa_coding_exercise/common/result/failure_result.dart';
 import 'package:spa_coding_exercise/common/result/success_result.dart';
-import 'package:spa_coding_exercise/data/models/location_model.dart';
+import 'package:spa_coding_exercise/data/models/place_location_model.dart';
 import 'package:spa_coding_exercise/data/network/http_method.dart';
 import 'package:spa_coding_exercise/data/network/managed_network_service.dart';
 import 'package:spa_coding_exercise/data/network/network_info.dart';
@@ -60,7 +60,7 @@ void main() {
     when(otherRequest.path).thenReturn('path');
     request = GetSpaPlacesRequest(
       const GetPlacesParameters(
-        nearLocation: LocationModel(
+        nearLocation: PlaceLocationModel(
           latitude: 10,
           longitude: 20,
         ),

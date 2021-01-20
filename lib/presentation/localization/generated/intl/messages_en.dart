@@ -21,7 +21,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "noInternetFound" : MessageLookupByLibrary.simpleMessage("Nie znaleziono połączenia internetowego"),
-    "unexpectedError" : MessageLookupByLibrary.simpleMessage("Wystąpił nieoczekiwany błąd")
+    "navigate" : MessageLookupByLibrary.simpleMessage("Navigate"),
+    "noInternetFound" : MessageLookupByLibrary.simpleMessage("No internet connection found"),
+    "spasNearYou" : MessageLookupByLibrary.simpleMessage("SPAs near you"),
+    "unexpectedError" : MessageLookupByLibrary.simpleMessage("An unexpected error occurred"),
+    "youAreHere" : MessageLookupByLibrary.simpleMessage("you are here")
   };
 }

@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:spa_coding_exercise/common/util/injector.dart';
+import 'package:spa_coding_exercise/domain/entities/place.dart';
+import 'package:spa_coding_exercise/domain/entities/place_location.dart';
 import 'package:spa_coding_exercise/presentation/features/home/page/home_page_body_parameters.dart';
+import 'package:spa_coding_exercise/presentation/features/home/widgets/current_location_button.dart';
+import 'package:spa_coding_exercise/presentation/features/home/widgets/nearby_places_indicator.dart';
+import 'package:spa_coding_exercise/presentation/features/home/widgets/place_details_modal.dart';
+import 'package:spa_coding_exercise/presentation/features/home/widgets/spa_map.dart';
+import 'package:spa_coding_exercise/presentation/features/user_location/bloc/user_location_bloc.dart';
 import 'package:spa_coding_exercise/presentation/page/page_body.dart';
+import 'package:spa_coding_exercise/presentation/theme/app_theme_constants.dart';
+import 'package:spa_coding_exercise/presentation/localization/generated/l10n.dart';
+import 'package:latlong/latlong.dart';
 
 class HomePageBody extends PageBody<HomePageBodyParameters> {
   const HomePageBody({
@@ -13,29 +26,81 @@ class HomePageBody extends PageBody<HomePageBodyParameters> {
 }
 
 class _HomePageBodyState extends State<HomePageBody> {
+  static const double _stackTopPadding = 40;
+
   HomePageBodyParameters get parameters => widget.parameters;
+
+  final _userLocationBloc = Injector.resolve<UserLocationBloc>();
+
+  Place _selectedPlace;
+  final mapController = MapController();
+
+  void _onPlaceSelected(Place place) {
+    setState(() {
+      if (_selectedPlace == place) {
+        _selectedPlace = null;
+      } else {
+        _selectedPlace = place;
+        _focusOnLocation(place.location, zoom: 14);
+      }
+    });
+  }
+
+  void _focusOnLocation(PlaceLocation placeLocation, {double zoom = 13}) {
+    mapController.move(
+      LatLng(
+        placeLocation.latitude,
+        placeLocation.longitude,
+      ),
+      zoom,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final primaryTextTheme = Theme.of(context).primaryTextTheme;
-    return Scaffold(
-      backgroundColor: Colors.blue,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Flexible(
-                  child: Text(
-                "Welcome to SPA Coding challenge",
-                style: primaryTextTheme.headline5,
-                textAlign: TextAlign.center,
-              )),
-            ],
-          ),
-        ],
+    return BlocListener<UserLocationBloc, UserLocationState>(
+      cubit: _userLocationBloc,
+      listener: (BuildContext context, UserLocationState state) {
+        if (state is LoadedUserLocationState) {
+          _focusOnLocation(state.userPlace.location);
+        }
+      },
+      child: Scaffold(
+        body: Stack(
+          children: [
+            SpaMap(
+              mapController: mapController,
+              spaPlaces: parameters.spaPlaces,
+              userPlace: parameters.userPlace,
+              selectedPlace: _selectedPlace,
+              onPlaceSelected: _onPlaceSelected,
+            ),
+            Positioned(
+              top: _stackTopPadding,
+              left: AppThemeConstants.horizontalPagePadding,
+              child: NearbyPlacesIndicator(
+                count: parameters.spaPlaces?.length ?? 0,
+                description: AppLocalizations.of(context).spasNearYou,
+              ),
+            ),
+            Positioned(
+              top: _stackTopPadding,
+              right: AppThemeConstants.horizontalPagePadding,
+              child: CurrentLocationButton(
+                _userLocationBloc,
+                onPressed: parameters.getCurrentLocation,
+              ),
+            ),
+            if (_selectedPlace != null)
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: PlaceDetailsModal(
+                  place: _selectedPlace,
+                  userLocation: parameters.userPlace,
+                ),
+              )
+          ],
+        ),
       ),
     );
   }

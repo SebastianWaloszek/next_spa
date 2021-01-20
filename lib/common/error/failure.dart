@@ -20,3 +20,9 @@ class UnexpectedFailure extends Failure {
   String toLocalizedMessage(BuildContext context) =>
       AppLocalizations.of(context).unexpectedError;
 }
+
+class UserLocationFailure extends Failure {
+  @override
+  String toLocalizedMessage(BuildContext context) =>
+      AppLocalizations.of(context).unexpectedError;
+}

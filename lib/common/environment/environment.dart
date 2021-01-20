@@ -10,4 +10,8 @@ abstract class Environment {
   String get baseUrl;
 
   String get accessToken;
+
+  String get lightMapTemplateUrl;
+
+  String get darkMapTemplateUrl;
 }

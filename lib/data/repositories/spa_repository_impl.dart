@@ -5,7 +5,7 @@ import 'package:spa_coding_exercise/data/data_sources/spa_data_source.dart';
 import 'package:spa_coding_exercise/domain/entities/place.dart';
 import 'package:spa_coding_exercise/domain/repositories/spa_repository.dart';
 
-class SpaRepositoryImpl extends SpaRepository {
+class SpaRepositoryImpl implements SpaRepository {
   final SpaDataSource _dataSource;
 
   const SpaRepositoryImpl(this._dataSource)

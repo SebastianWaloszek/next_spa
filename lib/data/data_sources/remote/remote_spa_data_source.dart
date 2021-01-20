@@ -6,7 +6,7 @@ import 'package:spa_coding_exercise/data/network/network_service.dart';
 import 'package:spa_coding_exercise/data/network/requests/get_spa_places_request.dart';
 import 'package:spa_coding_exercise/domain/entities/place.dart';
 
-class RemoteSpaDataSource extends SpaDataSource {
+class RemoteSpaDataSource implements SpaDataSource {
   final NetworkService _networkService;
 
   const RemoteSpaDataSource(this._networkService)
