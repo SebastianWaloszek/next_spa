@@ -1,6 +1,8 @@
 # NextSPA
 
 A Flutter SPA map application.
+[DOWNLOAD APK](https://github.com/SebastianWaloszek/next_spa/releases/) 
+
 ![alt text](https://mir-s3-cdn-cf.behance.net/project_modules/fs/afd17d111834661.600941edd328b.png)
 
 ## Features
