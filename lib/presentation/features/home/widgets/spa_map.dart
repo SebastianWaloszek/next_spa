@@ -4,8 +4,8 @@ import 'package:spa_coding_exercise/common/environment/environment.dart';
 import 'package:spa_coding_exercise/common/util/extensions/iterable_extensions.dart';
 import 'package:spa_coding_exercise/domain/entities/place.dart';
 import 'package:latlong/latlong.dart';
-import 'package:spa_coding_exercise/presentation/features/home/widgets/spa_location_marker.dart';
-import 'package:spa_coding_exercise/presentation/features/home/widgets/user_location_marker.dart';
+import 'package:spa_coding_exercise/presentation/features/home/widgets/marker/spa_location_marker.dart';
+import 'package:spa_coding_exercise/presentation/features/home/widgets/marker/user_location_marker.dart';
 import 'package:spa_coding_exercise/presentation/theme/app_theme_constants.dart';
 import 'package:spa_coding_exercise/presentation/theme/color/app_colors.dart';
 
@@ -61,22 +61,21 @@ class SpaMap extends StatelessWidget {
 
   MarkerLayerOptions _getMarkerLayerOptions(BuildContext context) {
     final markers = <Marker>[];
-    markers.addAll(spaPlaces
-        .map(
-          (place) => SpaLocationMarker(
-            context,
-            place: place,
-            selected: place == selectedPlace,
-            onTap: () => onPlaceSelected(place),
-          ),
-        )
-        .toList());
+    for (var index = 0; index < spaPlaces.length; index++) {
+      final place = spaPlaces.elementAt(index);
+      markers.add(
+        SpaLocationMarker(
+          id: index,
+          place: place,
+          selected: place == selectedPlace,
+          onTap: () => onPlaceSelected(place),
+        ),
+      );
+    }
+
     if (userPlace != null) {
       markers.add(
-        UserLocationMarker(
-          context,
-          place: userPlace,
-        ),
+        UserLocationMarker(place: userPlace),
       );
     }
     return MarkerLayerOptions(
