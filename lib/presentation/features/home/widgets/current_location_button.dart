@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spa_coding_exercise/common/util/extensions/widget_extensions.dart';
+import 'package:spa_coding_exercise/presentation/features/home/page/home_page_keys.dart';
 import 'package:spa_coding_exercise/presentation/features/user_location/bloc/user_location_bloc.dart';
 import 'package:spa_coding_exercise/presentation/theme/app_theme_constants.dart';
 import 'package:spa_coding_exercise/presentation/theme/color/app_colors.dart';
@@ -49,6 +50,7 @@ class CurrentLocationButton extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(15),
               child: CircularProgressIndicator(
+                key: const Key(HomePageKeys.loadingIndicator),
                 backgroundColor: AppColors.buttonContent(context),
               ),
             );

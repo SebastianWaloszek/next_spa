@@ -5,6 +5,7 @@ import 'package:spa_coding_exercise/common/util/injector.dart';
 import 'package:spa_coding_exercise/domain/entities/place.dart';
 import 'package:spa_coding_exercise/domain/entities/place_location.dart';
 import 'package:spa_coding_exercise/presentation/features/home/page/home_page_body_parameters.dart';
+import 'package:spa_coding_exercise/presentation/features/home/page/home_page_keys.dart';
 import 'package:spa_coding_exercise/presentation/features/home/widgets/current_location_button.dart';
 import 'package:spa_coding_exercise/presentation/features/home/widgets/nearby_places_indicator.dart';
 import 'package:spa_coding_exercise/presentation/features/home/widgets/place_details_modal.dart';
@@ -66,9 +67,11 @@ class _HomePageBodyState extends State<HomePageBody> {
         }
       },
       child: Scaffold(
+        key: const Key(HomePageKeys.homePageScaffold),
         body: Stack(
           children: [
             SpaMap(
+              key: const Key(HomePageKeys.spaMap),
               mapController: mapController,
               spaPlaces: parameters.spaPlaces,
               userPlace: parameters.userPlace,
@@ -79,6 +82,7 @@ class _HomePageBodyState extends State<HomePageBody> {
               top: _stackTopPadding,
               left: AppThemeConstants.horizontalPagePadding,
               child: NearbyPlacesIndicator(
+                key: const Key(HomePageKeys.nearbyPlacesIndicator),
                 count: parameters.spaPlaces?.length ?? 0,
                 description: AppLocalizations.of(context).spasNearYou,
               ),
@@ -88,6 +92,7 @@ class _HomePageBodyState extends State<HomePageBody> {
               right: AppThemeConstants.horizontalPagePadding,
               child: CurrentLocationButton(
                 _userLocationBloc,
+                key: const Key(HomePageKeys.currentLocationButton),
                 onPressed: parameters.getCurrentLocation,
               ),
             ),
@@ -95,6 +100,7 @@ class _HomePageBodyState extends State<HomePageBody> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: PlaceDetailsModal(
+                  key: const Key(HomePageKeys.placeDetailsModal),
                   place: _selectedPlace,
                   userLocation: parameters.userPlace,
                 ),
