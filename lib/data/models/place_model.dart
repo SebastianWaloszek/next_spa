@@ -10,9 +10,9 @@ import 'package:spa_coding_exercise/domain/entities/place_id.dart';
 class PlaceModel extends Place {
   const PlaceModel({
     @required PlaceId id,
-    @required String name,
-    @required PlaceLocation location,
-    @required Address address,
+    String name,
+    PlaceLocation location,
+    Address address,
   }) : super(
           id: id,
           name: name,

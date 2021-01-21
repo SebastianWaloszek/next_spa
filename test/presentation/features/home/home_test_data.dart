@@ -22,3 +22,27 @@ const place2 = PlaceModel(
     streetWithNumber: 'streetWithNumber2',
   ),
 );
+
+const placeWithNoName = PlaceModel(
+  id: PlaceIdModel('id3'),
+  location: PlaceLocationModel(latitude: 7.8, longitude: 9.10),
+  address: AddressModel(
+    province: 'province3',
+    streetWithNumber: 'streetWithNumber3',
+  ),
+);
+
+const placeWithNoAddress = PlaceModel(
+  id: PlaceIdModel('id4'),
+  name: 'name4',
+  location: PlaceLocationModel(latitude: 11.0, longitude: 11.1),
+);
+
+const placeWithNoLocation = PlaceModel(
+  id: PlaceIdModel('id5'),
+  name: 'name5',
+  address: AddressModel(
+    province: 'province5',
+    streetWithNumber: 'streetWithNumber5',
+  ),
+);
