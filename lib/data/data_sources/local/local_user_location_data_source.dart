@@ -40,18 +40,22 @@ class LocalUserLocationDataSource implements UserLocationDataSource {
 
   @override
   Future<Result<PlaceLocation, Failure>> getCurrentLocation() async {
-    final serviceEnabled = await _checkIfLocationServiceEnabled();
-    final permissionGranted = await _checkIfPermissionGranted();
+    try {
+      final serviceEnabled = await _checkIfLocationServiceEnabled();
+      final permissionGranted = await _checkIfPermissionGranted();
 
-    if (serviceEnabled && permissionGranted) {
-      final locationData = await _location.getLocation();
-      return SuccessResult(
-        PlaceLocationModel(
-          latitude: locationData.latitude,
-          longitude: locationData.longitude,
-        ),
-      );
-    } else {
+      if (serviceEnabled && permissionGranted) {
+        final locationData = await _location.getLocation();
+        return SuccessResult(
+          PlaceLocationModel(
+            latitude: locationData.latitude,
+            longitude: locationData.longitude,
+          ),
+        );
+      } else {
+        return FailureResult(UserLocationFailure());
+      }
+    } catch (e) {
       return FailureResult(UserLocationFailure());
     }
   }

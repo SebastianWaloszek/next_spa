@@ -10,7 +10,6 @@ import 'package:spa_coding_exercise/common/parameters/get_places_parameters.dart
 import 'package:spa_coding_exercise/common/result/failure_result.dart';
 import 'package:spa_coding_exercise/common/result/success_result.dart';
 import 'package:spa_coding_exercise/data/models/place_location_model.dart';
-import 'package:spa_coding_exercise/data/network/http_method.dart';
 import 'package:spa_coding_exercise/data/network/managed_network_service.dart';
 import 'package:spa_coding_exercise/data/network/network_info.dart';
 import 'package:spa_coding_exercise/data/network/network_service_impl.dart';
@@ -23,7 +22,11 @@ class NetworkInfoMock extends Mock implements NetworkInfo {}
 
 class DioMock extends Mock implements Dio {}
 
-class RequestMock extends Mock implements Request {}
+class RequestMock extends Request<String> {
+  const RequestMock() : super(path: 'path');
+  @override
+  String createResponse(dynamic json) => 'response';
+}
 
 abstract class Callable {
   void call() {}
@@ -42,7 +45,6 @@ void main() {
   ManagedNetworkService managedNetworkService;
 
   GetSpaPlacesRequest request;
-  Request otherRequest;
   Response tokenResponse;
 
   setUp(() {
@@ -55,9 +57,6 @@ void main() {
       networkInfo: networkInfo,
       networkService: networkServiceImpl,
     );
-    otherRequest = RequestMock();
-    when(otherRequest.method).thenReturn(HttpMethod.get);
-    when(otherRequest.path).thenReturn('path');
     request = GetSpaPlacesRequest(
       const GetPlacesParameters(
         nearLocation: PlaceLocationModel(

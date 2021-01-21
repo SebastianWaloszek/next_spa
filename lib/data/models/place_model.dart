@@ -25,7 +25,7 @@ class PlaceModel extends Place {
       id: PlaceIdModel.fromJson(json),
       name: json['text'] as String,
       location: PlaceLocationModel.fromJson(json),
-      address: ModelAddress.fromJson(json),
+      address: AddressModel.fromJson(json),
     );
   }
 }

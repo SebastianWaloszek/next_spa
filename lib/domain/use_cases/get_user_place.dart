@@ -7,18 +7,18 @@ import 'package:spa_coding_exercise/domain/repositories/user_location_repository
 import 'package:spa_coding_exercise/domain/use_cases/use_case.dart';
 
 class GetUserPlace extends UseCase<Place, void> {
-  final UserLocationRepository _repository;
+  final UserLocationRepository _userLocationRepository;
   final PlaceRepository _placeRepository;
 
   const GetUserPlace(
-    this._repository,
+    this._userLocationRepository,
     this._placeRepository,
-  )   : assert(_repository != null),
+  )   : assert(_userLocationRepository != null),
         assert(_placeRepository != null);
 
   @override
   Future<Result<Place, Failure>> call(_) async {
-    final result = await _repository.getCurrentLocation();
+    final result = await _userLocationRepository.getCurrentLocation();
     return result.fold(
       onSuccess: (placeLocation) {
         return _placeRepository.getPlace(placeLocation);

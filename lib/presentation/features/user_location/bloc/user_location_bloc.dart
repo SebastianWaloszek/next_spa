@@ -11,11 +11,11 @@ part 'user_location_event.dart';
 part 'user_location_state.dart';
 
 class UserLocationBloc extends Bloc<UserLocationEvent, UserLocationState> {
-  final GetUserPlace _getUserLocation;
+  final GetUserPlace _getUserPlace;
 
   UserLocationBloc(
-    this._getUserLocation,
-  )   : assert(_getUserLocation != null),
+    this._getUserPlace,
+  )   : assert(_getUserPlace != null),
         super(const LoadingUserLocationState());
 
   @override
@@ -31,7 +31,7 @@ class UserLocationBloc extends Bloc<UserLocationEvent, UserLocationState> {
     LoadUserLocationEvent event,
   ) async* {
     yield LoadingUserLocationState.fromState(state);
-    final result = await _getUserLocation.call(null);
+    final result = await _getUserPlace.call(null);
     yield* result.fold(
       onSuccess: (userPlace) async* {
         yield LoadedUserLocationState(userPlace: userPlace);

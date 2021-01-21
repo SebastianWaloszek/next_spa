@@ -50,6 +50,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.1.1"
+  bloc_test:
+    dependency: "direct dev"
+    description:
+      name: bloc_test
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.1.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -141,6 +148,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
+  coverage:
+    dependency: transitive
+    description:
+      name: coverage
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.15.1"
   crypto:
     dependency: transitive
     description:
@@ -304,6 +318,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.2"
+  http_multi_server:
+    dependency: transitive
+    description:
+      name: http_multi_server
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.0"
   http_parser:
     dependency: transitive
     description:
@@ -339,6 +360,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.0"
+  io:
+    dependency: transitive
+    description:
+      name: io
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.4"
   js:
     dependency: transitive
     description:
@@ -437,6 +465,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  mime:
+    dependency: transitive
+    description:
+      name: mime
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.7"
   mockito:
     dependency: "direct dev"
     description:
@@ -465,6 +500,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
+  node_preamble:
+    dependency: transitive
+    description:
+      name: node_preamble
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.12"
   octo_image:
     dependency: transitive
     description:
@@ -527,7 +569,7 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.9.2"
+    version: "1.10.0-nullsafety.3"
   petitparser:
     dependency: transitive
     description:
@@ -549,6 +591,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  pool:
+    dependency: transitive
+    description:
+      name: pool
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.5.0-nullsafety.3"
   positioned_tap_detector:
     dependency: transitive
     description:
@@ -598,6 +647,34 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.25.0"
+  shelf:
+    dependency: transitive
+    description:
+      name: shelf
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.7.9"
+  shelf_packages_handler:
+    dependency: transitive
+    description:
+      name: shelf_packages_handler
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
+  shelf_static:
+    dependency: transitive
+    description:
+      name: shelf_static
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.9+1"
+  shelf_web_socket:
+    dependency: transitive
+    description:
+      name: shelf_web_socket
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.3"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -610,6 +687,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.10+1"
+  source_map_stack_trace:
+    dependency: transitive
+    description:
+      name: source_map_stack_trace
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0-nullsafety.4"
+  source_maps:
+    dependency: transitive
+    description:
+      name: source_maps
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.10.10-nullsafety.3"
   source_span:
     dependency: transitive
     description:
@@ -673,6 +764,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0-nullsafety.3"
+  test:
+    dependency: transitive
+    description:
+      name: test
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.16.0-nullsafety.16"
   test_api:
     dependency: transitive
     description:
@@ -680,6 +778,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.19-nullsafety.6"
+  test_core:
+    dependency: transitive
+    description:
+      name: test_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.12-nullsafety.15"
   transparent_image:
     dependency: transitive
     description:
@@ -757,6 +862,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+  webkit_inspection_protocol:
+    dependency: transitive
+    description:
+      name: webkit_inspection_protocol
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.7.4"
   win32:
     dependency: transitive
     description:
