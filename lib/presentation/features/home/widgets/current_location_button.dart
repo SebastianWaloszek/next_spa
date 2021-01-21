@@ -7,15 +7,12 @@ import 'package:spa_coding_exercise/presentation/theme/app_theme_constants.dart'
 import 'package:spa_coding_exercise/presentation/theme/color/app_colors.dart';
 
 class CurrentLocationButton extends StatelessWidget {
-  final UserLocationBloc _userLocationBloc;
   final VoidCallback onPressed;
 
-  const CurrentLocationButton(
-    this._userLocationBloc, {
+  const CurrentLocationButton({
     Key key,
     @required this.onPressed,
-  })  : assert(_userLocationBloc != null),
-        assert(onPressed != null),
+  })  : assert(onPressed != null),
         super(key: key);
 
   @override
@@ -35,7 +32,6 @@ class CurrentLocationButton extends StatelessWidget {
         ),
       ),
       child: BlocBuilder<UserLocationBloc, UserLocationState>(
-        cubit: _userLocationBloc,
         builder: (context, state) {
           if (state is LoadedUserLocationState) {
             return IconButton(

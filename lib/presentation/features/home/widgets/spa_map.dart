@@ -10,6 +10,8 @@ import 'package:spa_coding_exercise/presentation/theme/app_theme_constants.dart'
 import 'package:spa_coding_exercise/presentation/theme/color/app_colors.dart';
 
 class SpaMap extends StatelessWidget {
+  static const double _initialMapZoom = 2;
+
   final MapController mapController;
 
   final List<Place> spaPlaces;
@@ -45,7 +47,7 @@ class SpaMap extends StatelessWidget {
       center: userPlace != null
           ? LatLng(userPlace.location.latitude, userPlace.location.longitude)
           : null,
-      zoom: 2,
+      zoom: _initialMapZoom,
     );
   }
 
@@ -72,11 +74,8 @@ class SpaMap extends StatelessWidget {
         ),
       );
     }
-
     if (userPlace != null) {
-      markers.add(
-        UserLocationMarker(place: userPlace),
-      );
+      markers.add(UserLocationMarker(place: userPlace));
     }
     return MarkerLayerOptions(
       markers: markers,
