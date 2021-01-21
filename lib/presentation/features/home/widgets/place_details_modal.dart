@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spa_coding_exercise/common/util/extensions/widget_extensions.dart';
 import 'package:spa_coding_exercise/domain/entities/address.dart';
 import 'package:spa_coding_exercise/domain/entities/place.dart';
 import 'package:spa_coding_exercise/presentation/features/home/widgets/navigate_button.dart';
@@ -27,7 +28,7 @@ class PlaceDetailsModal extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: AppColors.background(context),
-        // boxShadow: cellBoxShadow(context),
+        boxShadow: cellBoxShadow(context),
         borderRadius: BorderRadius.only(
           topLeft: AppThemeConstants.borderRadius.topLeft,
           topRight: AppThemeConstants.borderRadius.topRight,
