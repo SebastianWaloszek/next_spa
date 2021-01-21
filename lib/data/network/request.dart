@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:spa_coding_exercise/data/network/http_method.dart';
 
-abstract class Request<T> {
+abstract class Request<T> extends Equatable {
   final String path;
   final HttpMethod method;
   final RequestBody body;
@@ -16,6 +17,14 @@ abstract class Request<T> {
     this.queryParameters,
   })  : assert(path != null),
         assert(method != null);
+
+  @override
+  List<Object> get props => [
+        path,
+        method,
+        body,
+        queryParameters,
+      ];
 }
 
 abstract class RequestBody {
