@@ -12,13 +12,14 @@ abstract class Place extends Equatable {
 
   const Place({
     @required this.id,
-    @required this.name,
-    @required this.location,
-    @required this.address,
-  })  : assert(id != null),
-        assert(name != null),
-        assert(location != null),
-        assert(address != null);
+    this.name,
+    this.location,
+    this.address,
+  }) : assert(id != null);
+
+  bool get hasName => name != null;
+  bool get hasLocation => location != null;
+  bool get hasAddress => address != null;
 
   @override
   List<Object> get props => [

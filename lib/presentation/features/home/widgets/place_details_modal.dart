@@ -7,6 +7,11 @@ import 'package:spa_coding_exercise/presentation/theme/app_text_styles.dart';
 import 'package:spa_coding_exercise/presentation/theme/app_theme_constants.dart';
 import 'package:spa_coding_exercise/presentation/theme/color/app_colors.dart';
 
+abstract class PlaceDetailsModalKeys {
+  static const placeNameText = 'PLACE_DETAILS_MODAL_PLACE_NAME_TEXT';
+  static const addressRow = 'PLACE_DETAILS_MODAL_PLACE_ADDRESS_ROW';
+}
+
 class PlaceDetailsModal extends StatelessWidget {
   final Place place;
   final Place userLocation;
@@ -40,19 +45,23 @@ class PlaceDetailsModal extends StatelessWidget {
           const SizedBox(height: 15),
           _DragIndicator(context),
           const Spacer(),
-          if (place.name != null)
+          if (place.hasName)
             Text(
               place.name,
+              key: const Key(PlaceDetailsModalKeys.placeNameText),
               style: AppTextStyles.headline1(context),
               textAlign: TextAlign.center,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
           const SizedBox(height: 30),
-          if (place.address.combined != null)
-            _FullAddressRow(address: place.address),
+          if (place.hasAddress)
+            _FullAddressRow(
+              key: const Key(PlaceDetailsModalKeys.addressRow),
+              address: place.address,
+            ),
           const Spacer(),
-          if (userLocation != null)
+          if (userLocation.hasLocation && place.hasLocation)
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: AppThemeConstants.horizontalPagePadding,
